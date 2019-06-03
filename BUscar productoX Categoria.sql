@@ -17,20 +17,20 @@ INNER JOIN
 	catalog_product_entity_text AS `long` ON (`long`.`entity_id` = ei.`entity_id`)
 INNER JOIN
 	catalog_product_entity_text AS `kw` ON (`kw`.`entity_id` = ei.`entity_id`)
-INNER JOIN
+LEFT JOIN
 	eav_attribute_option_value AS brand ON (brand.`option_id` = ei.`value`)
-INNER JOIN
+LEFT JOIN
 	`udropship_vendor_product` AS `pq` ON (`pq`.`product_id` = sku.`entity_id`)
 LEFT JOIN
 	eav_attribute_option_value AS HD ON (HD.`option_id` = ei.`value` AND ei.`attribute_id` = 172)
-INNER JOIN
+LEFT JOIN
     `catalog_product_entity_varchar` AS `product_image` ON (`product_image`.`entity_id` = ei.`entity_id`)
-INNER JOIN
-	catalog_product_entity_decimal AS W ON (W.`entity_id` = ei.`entity_id`)
+LEFT JOIN
+	catalog_product_entity_decimal AS W ON (W.`entity_id` = ei.`entity_id`AND W.`attribute_id`= 80)
 LEFT JOIN 
 	catalog_product_entity_varchar AS model ON (model.`entity_id` = ei.`entity_id` AND model.`attribute_id` = 180)
 INNER JOIN
 	catalog_product_entity_int AS `status` ON (`status`.`entity_id` = ei.`entity_id` AND `status`.`attribute_id` = 96) 
 WHERE  
-C.attribute_id = 41 AND  C.store_id = '0' AND C.entity_id = 1147 AND `name`.attribute_id = 71 AND short.`attribute_id` = 73 AND `long`.`attribute_id` = 72 AND ei.`attribute_id` = 81 
-AND `kw`.`attribute_id` = 83 AND `product_image`.`attribute_id` = 85 AND W.`attribute_id`= 80 AND `status`.`value` = 1;
+C.attribute_id = 41 AND  C.store_id = '0' AND C.entity_id = 1146 AND `name`.attribute_id = 71 AND short.`attribute_id` = 73 AND `long`.`attribute_id` = 72 AND ei.`attribute_id` = 81 
+AND `kw`.`attribute_id` = 83 AND `product_image`.`attribute_id` = 85;
